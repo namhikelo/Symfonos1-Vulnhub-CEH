@@ -153,6 +153,15 @@ Nmap done: 1 IP address (1 host up) scanned in 65.86 seconds
 
 Ta thấy nó xuất hiện mã lỗi CVE-2011-1002
 
+### Found domain name symfonos.local
+<p align="left"><img src="/img/11.png" alt="SMB"></p>
+
+### Adding symfonos.local in /etc/hosts file
+<p align="left"><img src="/img/12.png" alt="symfonos"></p>
+
+Vì sao ta phải add vào? 
+Đây là tên miền local thì máy tính nó không nhận dạng dns được vì thế ta phải thêm id và tên miền vào.
+
 ### SMB
 
 ```bash 
