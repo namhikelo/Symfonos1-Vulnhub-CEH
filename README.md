@@ -177,3 +177,31 @@ smbclient -N -L //10.10.10.13
 Để xem dánh sách các list host dùng **smb** và  xem có xác thực khi vào **smb**
 
 <p align="left"><img src="/img/2.png" alt="SMB"></p>
+
+Ở đây ta thấy các user **helios** , **anonymous**.
+Giờ ta sẽ connect thử các user
+
+```bash
+smbclient //10.10.10.13/helios
+```
+
+<p align="left"><img src="/img/3.png" alt="SMB"></p>
+
+Ta không có pass để vào ok ta thử user anonymous
+
+```bash
+smbclient //10.10.10.13/anonymous
+```
+
+<p align="left"><img src="/img/4.png" alt="SMB"></p>
+
+Ok anonymous có vẻ không cần mật khẩu để đăng nhập vào
+
+
+Sau khi vào trong ta sẽ dùng lệnh **ls** để liệt kê các file. Sau đó dùng lệnh **get** để lấy file về máy. Để thoát ra ta sẽ **Ctrl D** or **exit**
+
+<p align="left"><img src="/img/5.png" alt="SMB"></p>
+
+Sau đó ta dùng lệnh cat để đọc file
+
+<p align="left"><img src="/img/6.png" alt="SMB"></p>
