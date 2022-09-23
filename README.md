@@ -6,6 +6,25 @@ Kiểm tra check ip có thể dùng nmap or Angry IP Scanner để scan network
 ### Angry IP Scanner 
 <p align="left"><img src="/img/1.png" alt="Run"></p>
 
+### nmap
+```bash
+nmap 10.10.10.0/24
+```
+
+```bash
+Starting Nmap 7.92 ( https://nmap.org ) at 2022-09-22 22:31 EDT
+Nmap scan report for 10.10.10.13
+Host is up (0.00020s latency).
+Not shown: 995 closed tcp ports (reset)
+PORT    STATE SERVICE
+22/tcp  open  ssh
+25/tcp  open  smtp
+80/tcp  open  http
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+MAC Address: 00:0C:29:45:A7:2E (VMware)
+```
+
 Sau khi đã có IP thì ta sẽ dùng nmap để scan dịch vụ của máy.
 ```bash
 nmap -sV -sC -sN -p- 10.10.10.13
