@@ -82,3 +82,68 @@ Host script results:
 Ở đây chúng ta thấy các dịch vụ như: port 22(ssh), 25(SMTP), 80(HTTP), 139(SMB), 445(SMB).
 
 Hệ điều hành Window 6.1
+
+### Scan lỗ hổng bảo mật
+```bash
+nmap -Pn --script vuln 10.10.10.13
+```
+
+```bash
+Starting Nmap 7.92 ( https://nmap.org ) at 2022-09-22 23:05 EDT
+Pre-scan script results:
+| broadcast-avahi-dos: 
+|   Discovered hosts:
+|     224.0.0.251
+|   After NULL UDP avahi packet DoS (CVE-2011-1002).
+|_  Hosts are all up (not vulnerable).
+Nmap scan report for 10.10.10.13
+Host is up (0.000096s latency).
+Not shown: 995 closed tcp ports (reset)
+PORT    STATE SERVICE
+22/tcp  open  ssh
+25/tcp  open  smtp
+| ssl-dh-params: 
+|   VULNERABLE:
+|   Anonymous Diffie-Hellman Key Exchange MitM Vulnerability
+|     State: VULNERABLE
+|       Transport Layer Security (TLS) services that use anonymous
+|       Diffie-Hellman key exchange only provide protection against passive
+|       eavesdropping, and are vulnerable to active man-in-the-middle attacks
+|       which could completely compromise the confidentiality and integrity
+|       of any data exchanged over the resulting session.
+|     Check results:
+|       ANONYMOUS DH GROUP 1
+|             Cipher Suite: TLS_DH_anon_WITH_AES_256_CBC_SHA
+|             Modulus Type: Safe prime
+|             Modulus Source: Unknown/Custom-generated
+|             Modulus Length: 2048
+|             Generator Length: 8
+|             Public Key Length: 2048
+|     References:
+|_      https://www.ietf.org/rfc/rfc2246.txt
+| smtp-vuln-cve2010-4344: 
+|_  The SMTP server is not Exim: NOT VULNERABLE
+80/tcp  open  http
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+| http-enum: 
+|_  /manual/: Potentially interesting folder
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+MAC Address: 00:0C:29:45:A7:2E (VMware)
+
+Host script results:
+| smb-vuln-regsvc-dos: 
+|   VULNERABLE:
+|   Service regsvc in Microsoft Windows systems vulnerable to denial of service
+|     State: VULNERABLE
+|       The service regsvc in Microsoft Windows 2000 systems is vulnerable to denial of service caused by a null deference
+|       pointer. This script will crash the service if it is vulnerable. This vulnerability was discovered by Ron Bowes
+|       while working on smb-enum-sessions.
+|_          
+|_smb-vuln-ms10-054: false
+|_smb-vuln-ms10-061: false
+
+Nmap done: 1 IP address (1 host up) scanned in 65.86 seconds
+```
