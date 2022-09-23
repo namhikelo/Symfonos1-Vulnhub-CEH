@@ -214,3 +214,31 @@ Trong đoạn văn nó có đề cập 3 mật để login helios.
 'epidioko', 'qwerty' and 'baseball'
 ```
 
+<p align="left"><img src="/img/7.png" alt="SMB"></p>
+
+Có vẻ tôi đã sai chỗ nào đó. Tệp này chứa cảnh báo cho người dùng không sử dụng các mật khẩu này.
+
+Vì thế tôi đã dùng câu lệnh.
+
+```bash
+smbclient //10.10.10.13/helios -U helios
+```
+
+-U, –user=USERNAME Set the network username
+
+<p align="left"><img src="/img/8.png" alt="SMB"></p>
+
+Sau đó ta sẽ **get** 2 file về và đọc nội dung nó
+
+<p align="left"><img src="/img/9.png" alt="SMB"></p>
+
+Ở file todo nó có đề cập  Work on /h3l105. Vì thế ta sẽ chạy web đó **10.10.10.13/h3l105**
+
+Vì vậy, nó là một trang web Wordpress. Chúng ta có thể sử dụng wpscan để liệt kê người dùng và các plugin.
+
+<p align="left"><img src="/img/10.png" alt="SMB"></p>
+
+```bash
+wpscan --url 10.10.10.13/h3l105/ –enumerate p
+```
+
