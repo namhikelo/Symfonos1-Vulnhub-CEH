@@ -205,3 +205,11 @@ Sau khi vào trong ta sẽ dùng lệnh **ls** để liệt kê các file. Sau �
 Sau đó ta dùng lệnh cat để đọc file
 
 <p align="left"><img src="/img/6.png" alt="SMB"></p>
+
+Trong đoạn văn nó có đề cập 3 mật để login helios.
+
+```bash
+'epidioko', 'qwerty' and 'baseball'
+```
+
+Trong đoạn văn nó có đề cập 3 mật để login helios.
