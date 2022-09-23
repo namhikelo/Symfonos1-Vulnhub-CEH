@@ -150,3 +150,11 @@ Host script results:
 
 Nmap done: 1 IP address (1 host up) scanned in 65.86 seconds
 ```
+
+Ta thấy nó xuất hiện mã lỗi CVE-2011-1002
+
+### SMB
+
+```bash 
+man smb
+```
