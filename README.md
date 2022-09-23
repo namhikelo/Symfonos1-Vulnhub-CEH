@@ -198,7 +198,9 @@ smbclient //10.10.10.13/anonymous
 Ok anonymous có vẻ không cần mật khẩu để đăng nhập vào
 
 
-Sau khi vào trong ta sẽ dùng lệnh **ls** để liệt kê các file. Sau đó dùng lệnh **get** để lấy file về máy. Để thoát ra ta sẽ **Ctrl D** or **exit**
+Sau khi vào trong ta sẽ dùng lệnh **ls** để liệt kê các file. Sau đó dùng lệnh **get** để lấy file về máy. 
+
+Để thoát ra ta sẽ **Ctrl D** or **exit**
 
 <p align="left"><img src="/img/5.png" alt="SMB"></p>
 
@@ -212,4 +214,3 @@ Trong đoạn văn nó có đề cập 3 mật để login helios.
 'epidioko', 'qwerty' and 'baseball'
 ```
 
-Trong đoạn văn nó có đề cập 3 mật để login helios.
