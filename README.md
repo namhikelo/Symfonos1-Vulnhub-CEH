@@ -241,13 +241,132 @@ Sau đó ta sẽ **get** 2 file về và đọc nội dung nó
 
 <p align="left"><img src="/img/9.png" alt="SMB"></p>
 
-Ở file todo nó có đề cập  Work on /h3l105. Vì thế ta sẽ chạy web đó **10.10.10.13/h3l105**
+Ở file todo nó có đề cập  Work on /h3l105. Vì thế ta sẽ chạy web đó **http://symfonos.local/h3l105/**
 
 Vì vậy, nó là một trang web Wordpress. Chúng ta có thể sử dụng wpscan để liệt kê người dùng và các plugin.
 
 <p align="left"><img src="/img/10.png" alt="SMB"></p>
 
 ```bash
-wpscan --url 10.10.10.13/h3l105/ –enumerate p
+wpscan --url http://symfonos.local/h3l105/ –enumerate p
 ```
 
+```bash
+                                                                                                                                                                                                                                            
+┌──(root㉿kali)-[/home/kali/Desktop]
+└─# wpscan --url http://symfonos.local/h3l105/ –enumerate p
+_______________________________________________________________
+         __          _______   _____
+         \ \        / /  __ \ / ____|
+          \ \  /\  / /| |__) | (___   ___  __ _ _ __ ®
+           \ \/  \/ / |  ___/ \___ \ / __|/ _` | '_ \
+            \  /\  /  | |     ____) | (__| (_| | | | |
+             \/  \/   |_|    |_____/ \___|\__,_|_| |_|
+
+         WordPress Security Scanner by the WPScan Team
+                         Version 3.8.22
+       Sponsored by Automattic - https://automattic.com/
+       @_WPScan_, @ethicalhack3r, @erwan_lr, @firefart
+_______________________________________________________________
+
+[+] URL: http://symfonos.local/h3l105/ [10.10.10.13]
+[+] Started: Sun Sep 25 00:33:40 2022
+
+Interesting Finding(s):
+
+[+] Headers
+ | Interesting Entry: Server: Apache/2.4.25 (Debian)
+ | Found By: Headers (Passive Detection)
+ | Confidence: 100%
+
+[+] XML-RPC seems to be enabled: http://symfonos.local/h3l105/xmlrpc.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+ | References:
+ |  - http://codex.wordpress.org/XML-RPC_Pingback_API
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_ghost_scanner/
+ |  - https://www.rapid7.com/db/modules/auxiliary/dos/http/wordpress_xmlrpc_dos/
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_xmlrpc_login/
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_pingback_access/
+
+[+] WordPress readme found: http://symfonos.local/h3l105/readme.html
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+
+[+] Upload directory has listing enabled: http://symfonos.local/h3l105/wp-content/uploads/
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+
+[+] The external WP-Cron seems to be enabled: http://symfonos.local/h3l105/wp-cron.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 60%
+ | References:
+ |  - https://www.iplocation.net/defend-wordpress-from-ddos
+ |  - https://github.com/wpscanteam/wpscan/issues/1299
+
+[+] WordPress version 5.2.16 identified (Latest, released on 2022-08-30).
+ | Found By: Rss Generator (Passive Detection)
+ |  - http://symfonos.local/h3l105/index.php/feed/, <generator>https://wordpress.org/?v=5.2.16</generator>
+ |  - http://symfonos.local/h3l105/index.php/comments/feed/, <generator>https://wordpress.org/?v=5.2.16</generator>
+
+[+] WordPress theme in use: twentynineteen
+ | Location: http://symfonos.local/h3l105/wp-content/themes/twentynineteen/
+ | Last Updated: 2022-05-24T00:00:00.000Z
+ | Readme: http://symfonos.local/h3l105/wp-content/themes/twentynineteen/readme.txt
+ | [!] The version is out of date, the latest version is 2.3
+ | Style URL: http://symfonos.local/h3l105/wp-content/themes/twentynineteen/style.css?ver=1.4
+ | Style Name: Twenty Nineteen
+ | Style URI: https://wordpress.org/themes/twentynineteen/
+ | Description: Our 2019 default theme is designed to show off the power of the block editor. It features custom sty...
+ | Author: the WordPress team
+ | Author URI: https://wordpress.org/
+ |
+ | Found By: Css Style In Homepage (Passive Detection)
+ |
+ | Version: 1.4 (80% confidence)
+ | Found By: Style (Passive Detection)
+ |  - http://symfonos.local/h3l105/wp-content/themes/twentynineteen/style.css?ver=1.4, Match: 'Version: 1.4'
+
+[+] Enumerating All Plugins (via Passive Methods)
+[+] Checking Plugin Versions (via Passive and Aggressive Methods)
+
+[i] Plugin(s) Identified:
+
+[+] mail-masta
+ | Location: http://symfonos.local/h3l105/wp-content/plugins/mail-masta/
+ | Latest Version: 1.0 (up to date)
+ | Last Updated: 2014-09-19T07:52:00.000Z
+ |
+ | Found By: Urls In Homepage (Passive Detection)
+ |
+ | Version: 1.0 (80% confidence)
+ | Found By: Readme - Stable Tag (Aggressive Detection)
+ |  - http://symfonos.local/h3l105/wp-content/plugins/mail-masta/readme.txt
+
+[+] site-editor
+ | Location: http://symfonos.local/h3l105/wp-content/plugins/site-editor/
+ | Latest Version: 1.1.1 (up to date)
+ | Last Updated: 2017-05-02T23:34:00.000Z
+ |
+ | Found By: Urls In Homepage (Passive Detection)
+ |
+ | Version: 1.1.1 (80% confidence)
+ | Found By: Readme - Stable Tag (Aggressive Detection)
+ |  - http://symfonos.local/h3l105/wp-content/plugins/site-editor/readme.txt
+
+[+] Enumerating Config Backups (via Passive and Aggressive Methods)
+ Checking Config Backups - Time: 00:00:00 <=============================================================================================================================================================> (137 / 137) 100.00% Time: 00:00:00
+
+[i] No Config Backups Found.
+
+[!] No WPScan API Token given, as a result vulnerability data has not been output.
+[!] You can get a free API token with 25 daily requests by registering at https://wpscan.com/register
+
+[+] Finished: Sun Sep 25 00:33:44 2022
+[+] Requests Done: 174
+[+] Cached Requests: 5
+[+] Data Sent: 46.15 KB
+[+] Data Received: 520.625 KB
+[+] Memory used: 231.676 MB
+[+] Elapsed time: 00:00:04
+```
