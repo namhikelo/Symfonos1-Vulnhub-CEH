@@ -13,6 +13,7 @@ Kiểm tra ip có thể dùng nmap or Angry IP Scanner để scan network
 nmap 10.10.10.0/24
 ```
 <details>
+<p> 
 ```bash
 Starting Nmap 7.92 ( https://nmap.org ) at 2022-09-22 22:31 EDT
 Nmap scan report for 10.10.10.13
@@ -26,7 +27,7 @@ PORT    STATE SERVICE
 445/tcp open  microsoft-ds
 MAC Address: 00:0C:29:45:A7:2E (VMware)
 ```
-
+</p>
 </details>
 
 Sau khi đã có IP: 10.10.10.13/24 thì ta sẽ dùng nmap để scan dịch vụ của máy.
