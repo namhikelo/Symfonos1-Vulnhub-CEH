@@ -33,7 +33,7 @@ Sau khi đã có IP: 10.10.10.13/24 thì ta sẽ dùng nmap để scan dịch v�
 nmap -sV -sC -sN -p- 10.10.10.13
 ```
 
-<details>
+```bash
 Starting Nmap 7.92 ( https://nmap.org ) at 2022-09-22 00:16 EDT
 Nmap scan report for 10.10.10.13
 Host is up (0.000075s latency).
@@ -80,8 +80,7 @@ Host script results:
 |   Domain name: \x00
 |   FQDN: symfonos
 |_  System time: 2022-09-21T23:16:30-05:0
-
-<details>
+```
 
 Ở đây chúng ta thấy các dịch vụ như: port 22(ssh), 25(SMTP), 80(HTTP), 139(SMB), 445(SMB).
 
