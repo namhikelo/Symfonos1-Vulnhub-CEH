@@ -261,7 +261,7 @@ Vì vậy, nó là một trang web Wordpress. Chúng ta có thể sử dụng wp
 
 <p align="left"><img src="/img/10.png" alt="SMB"></p>
 
-
+### WPSCAN
 
 ```bash
 wpscan --url http://symfonos.local/h3l105/ –enumerate p
@@ -731,4 +731,218 @@ Interesting Finding(s):
 [+] Memory used: 208.035 MB
 [+] Elapsed time: 00:00:09
  
+```
+
+### enum4linux 
+Các bạn cũng sẽ sử dụng một công cụ liệt kê rất mạnh mẽ và hữu ích có tên là enum4linux. Enum4linux là một công cụ được sử dụng để liệt kê thông tin từ các máy chủ Windows và Samba.
+
+Sau khi chúng ta tiến hành liệt kê thành công máy ảo Metasploitable 2, các bạn sẽ thực hiện đánh giá lỗ hổng về phía mạng trong hướng dẫn tiếp theo. Với thông tin được lấy từ quá 
+
+trình điều tra, ví dụ như phiên bản hệ điều hành và các dịch vụ đang chạy ta sẽ tìm kiếm các lỗ hổng trong các dịch vụ này. Các bạn sẽ sử dụng Cơ sở dữ liệu về lỗ hổng bảo mật nguồn 
+
+mở (OSVDB) và Lỗ hổng bảo mật phổ biến và mức độ phơi nhiễm (CVE) cho mục đích này. 
+
+```bash
+                                                                                                                                                                                                                   
+┌──(root㉿kali)-[/home/kali/Desktop]
+└─# enum4linux 10.10.10.13
+Starting enum4linux v0.9.1 ( http://labs.portcullis.co.uk/application/enum4linux/ ) on Wed Sep 28 02:59:54 2022
+
+ =========================================( Target Information )=========================================
+
+Target ........... 10.10.10.13
+RID Range ........ 500-550,1000-1050
+Username ......... ''
+Password ......... ''
+Known Usernames .. administrator, guest, krbtgt, domain admins, root, bin, none
+
+
+ ============================( Enumerating Workgroup/Domain on 10.10.10.13 )============================
+
+
+[+] Got domain/workgroup name: WORKGROUP
+
+
+ ================================( Nbtstat Information for 10.10.10.13 )================================
+
+Looking up status of 10.10.10.13
+        SYMFONOS        <00> -         B <ACTIVE>  Workstation Service
+        SYMFONOS        <03> -         B <ACTIVE>  Messenger Service
+        SYMFONOS        <20> -         B <ACTIVE>  File Server Service
+        ..__MSBROWSE__. <01> - <GROUP> B <ACTIVE>  Master Browser
+        WORKGROUP       <00> - <GROUP> B <ACTIVE>  Domain/Workgroup Name
+        WORKGROUP       <1d> -         B <ACTIVE>  Master Browser
+        WORKGROUP       <1e> - <GROUP> B <ACTIVE>  Browser Service Elections
+
+        MAC Address = 00-00-00-00-00-00
+
+ ====================================( Session Check on 10.10.10.13 )====================================
+                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                            
+[+] Server 10.10.10.13 allows sessions using username '', password ''                                                                                                                                                                       
+                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                            
+ =================================( Getting domain SID for 10.10.10.13 )=================================
+                                                                                                                                                                                                                                            
+Domain Name: WORKGROUP                                                                                                                                                                                                                      
+Domain Sid: (NULL SID)
+
+[+] Can't determine if host is part of domain or part of a workgroup                                                                                                                                                                        
+                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                            
+ ===================================( OS information on 10.10.10.13 )===================================
+                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                            
+[E] Can't get OS info with smbclient                                                                                                                                                                                                        
+                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                            
+[+] Got OS info for 10.10.10.13 from srvinfo:                                                                                                                                                                                               
+        SYMFONOS       Wk Sv PrQ Unx NT SNT Samba 4.5.16-Debian                                                                                                                                                                             
+        platform_id     :       500
+        os version      :       6.1
+        server type     :       0x809a03
+
+
+ ========================================( Users on 10.10.10.13 )========================================
+                                                                                                                                                                                                                                            
+index: 0x1 RID: 0x3e8 acb: 0x00000010 Account: helios   Name:   Desc:                                                                                                                                                                       
+
+user:[helios] rid:[0x3e8]
+
+ ==================================( Share Enumeration on 10.10.10.13 )==================================
+                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                            
+        Sharename       Type      Comment
+        ---------       ----      -------
+        print$          Disk      Printer Drivers
+        helios          Disk      Helios personal share
+        anonymous       Disk      
+        IPC$            IPC       IPC Service (Samba 4.5.16-Debian)
+Reconnecting with SMB1 for workgroup listing.
+
+        Server               Comment
+        ---------            -------
+
+        Workgroup            Master
+        ---------            -------
+        WORKGROUP            SYMFONOS
+
+[+] Attempting to map shares on 10.10.10.13                                                                                                                                                                                                 
+                                                                                                                                                                                                                                            
+//10.10.10.13/print$    Mapping: DENIED Listing: N/A Writing: N/A                                                                                                                                                                           
+//10.10.10.13/helios    Mapping: DENIED Listing: N/A Writing: N/A
+//10.10.10.13/anonymous Mapping: OK Listing: OK Writing: N/A
+
+[E] Can't understand response:                                                                                                                                                                                                              
+                                                                                                                                                                                                                                            
+NT_STATUS_OBJECT_NAME_NOT_FOUND listing \*                                                                                                                                                                                                  
+//10.10.10.13/IPC$      Mapping: N/A Listing: N/A Writing: N/A
+
+ ============================( Password Policy Information for 10.10.10.13 )============================
+                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                            
+
+[+] Attaching to 10.10.10.13 using a NULL share
+
+[+] Trying protocol 139/SMB...
+
+[+] Found domain(s):
+
+        [+] SYMFONOS
+        [+] Builtin
+
+[+] Password Info for Domain: SYMFONOS
+
+        [+] Minimum password length: 5
+        [+] Password history length: None
+        [+] Maximum password age: 37 days 6 hours 21 minutes 
+        [+] Password Complexity Flags: 000000
+
+                [+] Domain Refuse Password Change: 0
+                [+] Domain Password Store Cleartext: 0
+                [+] Domain Password Lockout Admins: 0
+                [+] Domain Password No Clear Change: 0
+                [+] Domain Password No Anon Change: 0
+                [+] Domain Password Complex: 0
+
+        [+] Minimum password age: None
+        [+] Reset Account Lockout Counter: 30 minutes 
+        [+] Locked Account Duration: 30 minutes 
+        [+] Account Lockout Threshold: None
+        [+] Forced Log off Time: 37 days 6 hours 21 minutes 
+
+
+
+[+] Retieved partial password policy with rpcclient:                                                                                                                                                                                        
+                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                            
+Password Complexity: Disabled                                                                                                                                                                                                               
+Minimum Password Length: 5
+
+
+ =======================================( Groups on 10.10.10.13 )=======================================
+                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                            
+[+] Getting builtin groups:                                                                                                                                                                                                                 
+                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                            
+[+]  Getting builtin group memberships:                                                                                                                                                                                                     
+                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                            
+[+]  Getting local groups:                                                                                                                                                                                                                  
+                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                            
+[+]  Getting local group memberships:                                                                                                                                                                                                       
+                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                            
+[+]  Getting domain groups:                                                                                                                                                                                                                 
+                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                            
+[+]  Getting domain group memberships:                                                                                                                                                                                                      
+                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                            
+ ===================( Users on 10.10.10.13 via RID cycling (RIDS: 500-550,1000-1050) )===================
+                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                            
+[I] Found new SID:                                                                                                                                                                                                                          
+S-1-22-1                                                                                                                                                                                                                                    
+
+[I] Found new SID:                                                                                                                                                                                                                          
+S-1-5-32                                                                                                                                                                                                                                    
+
+[I] Found new SID:                                                                                                                                                                                                                          
+S-1-5-32                                                                                                                                                                                                                                    
+
+[I] Found new SID:                                                                                                                                                                                                                          
+S-1-5-32                                                                                                                                                                                                                                    
+
+[I] Found new SID:                                                                                                                                                                                                                          
+S-1-5-32                                                                                                                                                                                                                                    
+
+[+] Enumerating users using SID S-1-22-1 and logon username '', password ''                                                                                                                                                                 
+                                                                                                                                                                                                                                            
+S-1-22-1-1000 Unix User\helios (Local User)                                                                                                                                                                                                 
+
+[+] Enumerating users using SID S-1-5-21-3173842667-3005291855-38846888 and logon username '', password ''                                                                                                                                  
+                                                                                                                                                                                                                                            
+S-1-5-21-3173842667-3005291855-38846888-501 SYMFONOS\nobody (Local User)                                                                                                                                                                    
+S-1-5-21-3173842667-3005291855-38846888-513 SYMFONOS\None (Domain Group)
+S-1-5-21-3173842667-3005291855-38846888-1000 SYMFONOS\helios (Local User)
+
+[+] Enumerating users using SID S-1-5-32 and logon username '', password ''                                                                                                                                                                 
+                                                                                                                                                                                                                                            
+S-1-5-32-544 BUILTIN\Administrators (Local Group)                                                                                                                                                                                           
+S-1-5-32-545 BUILTIN\Users (Local Group)
+S-1-5-32-546 BUILTIN\Guests (Local Group)
+S-1-5-32-547 BUILTIN\Power Users (Local Group)
+S-1-5-32-548 BUILTIN\Account Operators (Local Group)
+S-1-5-32-549 BUILTIN\Server Operators (Local Group)
+S-1-5-32-550 BUILTIN\Print Operators (Local Group)
+
+ ================================( Getting printer info for 10.10.10.13 )================================
+                                                                                                                                                                                                                                            
+No printers returned.                                                                                                                                                                                                                       
+
+
+enum4linux complete on Wed Sep 28 03:00:11 2022
 ```
