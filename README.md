@@ -84,7 +84,6 @@ Host script results:
 
 Ở đây chúng ta thấy các dịch vụ như: port 22(ssh), 25(SMTP), 80(HTTP), 139(SMB), 445(SMB).
 
-Hệ điều hành Window 6.1
 
 ### Scan lỗ hổng bảo mật
 ```bash
