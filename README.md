@@ -16,7 +16,7 @@ nmap 10.10.10.0/24
 <summary>
 ok
 </summary> 
-```bash
+
 Starting Nmap 7.92 ( https://nmap.org ) at 2022-09-22 22:31 EDT
 Nmap scan report for 10.10.10.13
 Host is up (0.00020s latency).
@@ -28,7 +28,7 @@ PORT    STATE SERVICE
 139/tcp open  netbios-ssn
 445/tcp open  microsoft-ds
 MAC Address: 00:0C:29:45:A7:2E (VMware)
-```
+
 
 </details>
 
