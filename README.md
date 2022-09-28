@@ -258,7 +258,10 @@ Sau đó ta sẽ **get** 2 file về và đọc nội dung nó
 
 Vì vậy, nó là một trang web Wordpress. Chúng ta có thể sử dụng wpscan để liệt kê người dùng và các plugin.
 
-<p align="left"><img src="/img/14.png" alt="SMB"></p>
+
+<p align="left"><img src="/img/10.png" alt="SMB"></p>
+
+
 
 ```bash
 wpscan --url http://symfonos.local/h3l105/ –enumerate p
