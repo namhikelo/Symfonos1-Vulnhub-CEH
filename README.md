@@ -158,6 +158,20 @@ Ta thấy nó xuất hiện mã lỗi CVE-2011-1002
 ### Adding symfonos.local in /etc/hosts file
 <p align="left"><img src="/img/12 domain.png" alt="symfonos"></p>
 
+### Connect web port 80
+http://symfonos.local/
+
+<p align="left"><img src="/img/14.png" alt="symfonos"></p>
+
+Ta down file ảnh và phân tích ảnh.
+
+```bash
+binwalk  image.jpg
+```
+
+<p align="left"><img src="/img/15.png" alt="symfonos"></p>
+
+File ảnh clear
 
 ### SMB
 
