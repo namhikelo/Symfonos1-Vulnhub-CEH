@@ -173,6 +173,8 @@ binwalk  image.jpg
 
 File ảnh clear
 
+## enumeration
+
 ### SMB
 
 ```bash 
