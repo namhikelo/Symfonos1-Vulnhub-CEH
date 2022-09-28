@@ -27,13 +27,6 @@ PORT    STATE SERVICE
 MAC Address: 00:0C:29:45:A7:2E (VMware)
 ```
 
-<p>A Collapsible:</p>
-<button type="button" class="collapsible">Open Collapsible</button>
-<div class="content">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</div>
-
-
 Sau khi đã có IP: 10.10.10.13/24 thì ta sẽ dùng nmap để scan dịch vụ của máy.
 
 ```bash
