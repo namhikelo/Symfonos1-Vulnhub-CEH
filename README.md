@@ -17,6 +17,7 @@ nmap 10.10.10.0/24
 ok
 </summary> 
 
+```bash
 Starting Nmap 7.92 ( https://nmap.org ) at 2022-09-22 22:31 EDT
 Nmap scan report for 10.10.10.13
 Host is up (0.00020s latency).
@@ -28,6 +29,13 @@ PORT    STATE SERVICE
 139/tcp open  netbios-ssn
 445/tcp open  microsoft-ds
 MAC Address: 00:0C:29:45:A7:2E (VMware)
+```
+
+<p>A Collapsible:</p>
+<button type="button" class="collapsible">Open Collapsible</button>
+<div class="content">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
 
 
 </details>
